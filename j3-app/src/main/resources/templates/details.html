@@ -12,5 +12,11 @@
         <li th:if="${user.email}" th:text="${user.email}"></li>
         <li th:if="${user.email == null}" th:text="${'el usuario no tiene email'}"></li>
     </ul>
+    <ul>
+        <li><a th:href="@{/list}">Ver lista</a></li>
+        <li><a th:href="@{/api/params/foo?message=Reportando desde el enlace}">Envio variable version 1</a></li>
+        <li><a th:href="@{/api/params/foo(message='Reportando desde el enlace V2')}">Envio variable version 2</a></li>
+        <li><a th:href="@{/api/params/bar(text='Reportando desde el enlace V3',code=586)}">Envio variable version 3</a></li>
+    </ul>
 </body>
 </html>
