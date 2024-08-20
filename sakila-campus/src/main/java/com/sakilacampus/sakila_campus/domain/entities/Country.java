@@ -1,31 +1,29 @@
 package com.sakilacampus.sakila_campus.domain.entities;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+
 @Entity
-@Table(name = "stores")
-public class Store {
+@Table(name = "countries")
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    Employee employees;
-
-    @ManyToOne
-    Address addresses;
+    @Column(length = 50, nullable = false)
+    private String name;
 
     @Column(name = "last_update", columnDefinition = "TIMESTAMP")
     private LocalDateTime lastupdate;
 
-    public Store() {
+    public Country() {
     }
 
     public Long getId() {
@@ -36,20 +34,12 @@ public class Store {
         this.id = id;
     }
 
-    public Employee getEmployees() {
-        return employees;
+    public String getName() {
+        return name;
     }
 
-    public void setEmployees(Employee employees) {
-        this.employees = employees;
-    }
-
-    public Address getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(Address addresses) {
-        this.addresses = addresses;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDateTime getLastupdate() {
@@ -59,4 +49,5 @@ public class Store {
     public void setLastupdate(LocalDateTime lastupdate) {
         this.lastupdate = lastupdate;
     }
+    
 }

@@ -7,25 +7,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "stores")
-public class Store {
+@Table(name = "inventories")
+public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    Employee employees;
+    Movie movies;
 
     @ManyToOne
-    Address addresses;
+    Store stores;
 
-    @Column(name = "last_update", columnDefinition = "TIMESTAMP")
+    @Column(name ="last_update", columnDefinition="TIMESTAMP")
     private LocalDateTime lastupdate;
 
-    public Store() {
+    public Inventory() {
     }
 
     public Long getId() {
@@ -36,20 +37,20 @@ public class Store {
         this.id = id;
     }
 
-    public Employee getEmployees() {
-        return employees;
+    public Movie getMovies() {
+        return movies;
     }
 
-    public void setEmployees(Employee employees) {
-        this.employees = employees;
+    public void setMovies(Movie movies) {
+        this.movies = movies;
     }
 
-    public Address getAddresses() {
-        return addresses;
+    public Store getStores() {
+        return stores;
     }
 
-    public void setAddresses(Address addresses) {
-        this.addresses = addresses;
+    public void setStores(Store stores) {
+        this.stores = stores;
     }
 
     public LocalDateTime getLastupdate() {
@@ -59,4 +60,6 @@ public class Store {
     public void setLastupdate(LocalDateTime lastupdate) {
         this.lastupdate = lastupdate;
     }
+
+    
 }

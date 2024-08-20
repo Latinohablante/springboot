@@ -1,31 +1,29 @@
 package com.sakilacampus.sakila_campus.domain.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "stores")
-public class Store {
+@Table(name = "payments")
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    Customer customers;
+
+    @ManyToOne
     Employee employees;
 
     @ManyToOne
-    Address addresses;
+    Rent rents;
 
-    @Column(name = "last_update", columnDefinition = "TIMESTAMP")
-    private LocalDateTime lastupdate;
-
-    public Store() {
+    public Payment() {
     }
 
     public Long getId() {
@@ -36,6 +34,14 @@ public class Store {
         this.id = id;
     }
 
+    public Customer getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Customer customers) {
+        this.customers = customers;
+    }
+
     public Employee getEmployees() {
         return employees;
     }
@@ -44,19 +50,12 @@ public class Store {
         this.employees = employees;
     }
 
-    public Address getAddresses() {
-        return addresses;
+    public Rent getRents() {
+        return rents;
     }
 
-    public void setAddresses(Address addresses) {
-        this.addresses = addresses;
+    public void setRents(Rent rents) {
+        this.rents = rents;
     }
 
-    public LocalDateTime getLastupdate() {
-        return lastupdate;
-    }
-
-    public void setLastupdate(LocalDateTime lastupdate) {
-        this.lastupdate = lastupdate;
-    }
 }

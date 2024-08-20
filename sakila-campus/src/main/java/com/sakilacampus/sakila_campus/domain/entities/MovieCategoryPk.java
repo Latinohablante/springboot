@@ -5,13 +5,15 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
+
 @Embeddable
 public class MovieCategoryPk implements Serializable{
     @Column(name = "id_movie")
     private Long idmovie;
+
     @Column(name = "id_category")
     private Long idcategory;
-    
+
     public Long getIdmovie() {
         return idmovie;
     }
