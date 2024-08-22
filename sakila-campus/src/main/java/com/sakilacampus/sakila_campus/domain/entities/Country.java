@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotNull;
+
+
 
 @Entity
 @Table(name = "countries")
@@ -17,6 +20,7 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "El nombre no puede ser nulo")
     @Column(length = 50, nullable = false)
     private String name;
 
